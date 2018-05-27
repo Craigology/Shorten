@@ -1,8 +1,8 @@
-﻿namespace Lup.Software.Engineering
-{
-    using System.IO;
-    using Microsoft.AspNetCore.Hosting;
+﻿using System.IO;
+using Microsoft.AspNetCore.Hosting;
 
+namespace Lup.Software.Engineering
+{
     public class Program
     {
         public static void Main(string[] args)

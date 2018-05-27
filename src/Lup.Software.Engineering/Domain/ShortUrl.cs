@@ -5,6 +5,9 @@ using Microsoft.WindowsAzure.Storage.Table;
 
 namespace Lup.Software.Engineering.Domain
 {
+    /// <summary>
+    /// Domain entity describing a shortened URL, with its associated original URL and visit metrics.
+    /// </summary>
     public class ShortUrl : TableEntity
     {
         public static implicit operator string(ShortUrl shortUrl) => shortUrl.Short;

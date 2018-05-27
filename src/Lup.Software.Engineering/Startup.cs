@@ -1,16 +1,15 @@
-﻿using Lup.Software.Engineering.Domain;
+﻿using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Logging;
+using Newtonsoft.Json.Serialization;
+using Lup.Software.Engineering.Domain;
 using Lup.Software.Engineering.Models;
 using Lup.Software.Engineering.Storage;
-using Newtonsoft.Json.Converters;
-using Newtonsoft.Json.Serialization;
 
 namespace Lup.Software.Engineering
 {
-    using Microsoft.AspNetCore.Builder;
-    using Microsoft.AspNetCore.Hosting;
-    using Microsoft.Extensions.Configuration;
-    using Microsoft.Extensions.DependencyInjection;
-    using Microsoft.Extensions.Logging;
 
     public class Startup
     {
@@ -35,12 +34,13 @@ namespace Lup.Software.Engineering
                 .AddMvc()
                 .AddJsonOptions(options =>
                 {
+                    // Coerce camel-case contract serialization.
                     options.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
                 });
 
+            // Custom registrations, this would ideally be promoted into a more extensible container framework such as Autofac.
             services.AddSingleton<TableStorageContext>();
             services.AddScoped<ShortUrlRepository>();
-
         }
 
         public void Configure(

@@ -7,6 +7,9 @@ using Microsoft.WindowsAzure.Storage.Table;
 
 namespace Lup.Software.Engineering.Storage
 {
+    /// <summary>
+    /// A basic data storage context wrapping the Azure TableStorage SDK client.
+    /// </summary>
     public class TableStorageContext
     {
         private readonly CloudTableClient _tableClient;

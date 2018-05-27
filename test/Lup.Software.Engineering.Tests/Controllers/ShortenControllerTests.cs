@@ -28,6 +28,10 @@ namespace Lup.Software.Engineering.Tests.Controllers
             objectResult.StatusCode.ShouldBe((int)HttpStatusCode.BadRequest);
         }
 
+        //
+        // TODO: Many other tests relating to the supplied test scope are possible.
+        //
+
         private ShortenController CreateSUT()
         {
             return new ShortenController(
